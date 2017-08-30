@@ -11,7 +11,8 @@
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="icon" href="icon.png">
     <!-- Place favicon.ico in the root directory -->
-
+    <!-- 此行为内容安全策略--- -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
     <!--<link rel="stylesheet" href="css/normalize.css">-->
     <!--<link rel="stylesheet" href="css/main.css">-->
     <link rel="stylesheet" href="css/media.css">
@@ -83,6 +84,109 @@
     <track src="vtt/sintel-en.vtt">
 </video>
 
+<h2>9、嵌入其他页面</h2>
+<p>这将嵌入百度首页页面</p>
+<iframe src="http://www.baidu.com" width="100%" height="500" allowfullscreen frameborder="3">
+
+</iframe>
+
+<h2>10、IFrame的漏洞处理： 配置CSP指令</h2>
+<p>1、你应该使用sandbox没有参数的属性来强制执行所有可用的限制</p>
+<p>2、CSP代表【内容安全策略】，并提供了一组HTTP标头（由Web服务器发送时与元数据一起发送的元素据），旨在提高HTML文档的安全性。在保护
+    &lt;iframe>时，你可以将服务器配置为发送适当的标题。这可以防止其他网站在其网页中嵌入你的内容，正如我们之前看到的那样，MDN开发人员正在做什么。
+</p>
+<p><code>&lt; meta http-equiv="Content-Security-Policy" content="default-src 'self'"&lt;</code></p>
+
+<h2>11、Embed 嵌入</h2>
+
+<embed src="whoosh.swf" quality="medium"
+       bgcolor="#ffffff" width="50%" height="500"
+       name="whoosh" align="middle" allowScriptAccess="sameDomain"
+       allowFullScreen="false" type="application/x-shockwave-flash"
+       pluginspage="http://www.macromedia.com/go/getflashplayer">
+</embed>
+<h2>12、Object 嵌入</h2>
+<object data="mypdf.pdf" type="application/pdf"
+        width="50%" height="1200" typemustmatch>
+    <p>You don't have a PDF plugin, but you can <a href="myfile.pdf">download the PDF file.</a></p>
+</object>
+
+<h2>13、向Web中嵌入SVG</h2>
+<svg version="1.1"
+     baseProfile="full"
+     width="300" height="200"
+     xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="black"/>
+    <circle cx="150" cy="100" r="90" fill="blue"/>
+</svg>
+<p>此图为导入的SVG文件</p>
+<img src="img/elva-fairy-800w.svg">
+<svg width="100%" height="100%">
+    <rect width="100%" height="100%" fill="red"/>
+    <circle cx="100%" cy="100%" r="150" fill="blue" stroke="black"/>
+    <polygon points="120,0 240,225 0,225" fill="green"/>
+    <text x="50" y="100" font-family="Verdana" font-size="55"
+          fill="white" stroke="black" stroke-width="2">
+        Hello!
+    </text>
+</svg>
+
+<h2>14、响应图像进行适配</h2>
+<img srcset="img/elva-fairy-320w.jpg 320w,
+            img/elva-fairy-480w.jpg 4980w,
+            img/elva-fairy-640w.jpg 640w,
+            img/elva-fairy-800w.jpg 800w"
+     sizes="(max-width : 320px) 280px,
+                    (max-width: 480px) 440px,
+                    (max-width: 800px) " ,
+     src="img/elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+
+<h2>15、Picture元素实现：响应图像进行适配</h2>
+<picture>
+    <source media="(max-width: 799px)" srcset="img/elva-fairy-640w.jpg">
+    <source media="(min-width: 800px)" srcset="img/elva-fairy-800w.jpg">
+    <img src="img/elva-fairy-800w.jpg" alt="Chris standing up holding his daughter Elva">
+</picture>
+
+
+<h2>16、Mozilla启动页面</h2>
+
+<h2>17、JavaScript动态添加对象</h2>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<script type="text/javascript">
+    //创建一个表格对象.
+    var table = document.createElement("table");
+    //设置表格的边框为1.
+    table.border = 3;
+    table.style.borderColor = "#9900ff";
+    //创建表格的标题
+    caption = table.createCaption();
+    caption.innerHTML = "表格标题";
+
+    //为表格循环插入5行
+    for(var i =0; i< 5; i++){
+
+        //插入行
+        var tr = table.insertRow(i);
+        //循环插入7列
+        for(var j = 0; j< 7;j++){
+            //循环插入7列
+            var td = tr.insertCell(j);
+            //设置每个单元格的内容
+            td.innerHTML = "单元格内容" + i + j;
+
+        }
+
+    }
+    //将单元格添加到body中。
+    document.body.appendChild(table);
+
+</script>
+
+<h2>18、动态控制超链接跳转</h2>
+<p><a href="https://www.baidu.com/" onclick="return confirm('确定要跳转到百度首页吗？')">跳转到百度首页。。。。</a></p>
+
+
+<script src="js/media.js"></script>
 </body>
 </html>
