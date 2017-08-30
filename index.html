@@ -1,37 +1,88 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>多媒体和嵌套</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>多媒体和嵌套</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+    <!--<link rel="stylesheet" href="css/normalize.css">-->
+    <!--<link rel="stylesheet" href="css/main.css">-->
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+<h2>1、如何将图像显示在页面上？</h2>
+<code lang="US">
+    <img src="icon.png">
+</code>
+<br>
+<br>
+<br>
+<h2>2、替代文字</h2>
+<p>当图像地址拼写错误时，浏览器不会显示图像，而会显示替代文字</p>
+<code>
+    <img src="icon.png"
+         alt="你看到的就是替代文字，你可以讲我提示的信息替换成你想替换的“替代文字” 当浏览器不显示图像时，我才会出现哦">
+</code>
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+<h2>3、图片宽和高</h2>
+<code>
+    <img src="icon.png"
+         alt="你看到的就是替代文字，你可以讲我提示的信息替换成你想替换的“替代文字” 当浏览器不显示图像时，我才会出现哦"
+         width="300"
+         height="400"
+    >
+</code>
 
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-        </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-    </body>
+<h2>4、图片的title</h2>
+<p>当鼠标放到图像上，就可以看到图片的title提示信息啦哦</p>
+<code>
+    <img src="icon.png"
+         alt="你看到的就是替代文字，你可以讲我提示的信息替换成你想替换的“替代文字” 当浏览器不显示图像时，我才会出现哦"
+         width="300"
+         height="400"
+         title="Hello I am the title of the image"
+    >
+</code>
+
+<h2>5、图片和图像的注释</h2>
+<code>
+    <figure>
+        <img src="icon.png"
+             alt="你看到的就是替代文字，你可以讲我提示的信息替换成你想替换的“替代文字” 当浏览器不显示图像时，我才会出现哦"
+             width="300"
+             height="400"
+        >
+        <figcaption>Hello I am the 注释 of the image ^_^</figcaption>
+    </figure>
+</code>
+
+<h2>6、音频和视频在网络上</h2>
+<video src="rabbit320.mp4" controls width="50%" height="10%" preload="auto">
+    <!-- video内的段落，用于，当video播放失败时进行展示给用户的提示信息，并且将直到用户链接到视频地址等信息。。。 -->
+    <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p>
+</video>
+
+
+<h2>7、播放音频</h2>
+<audio src="audio/Elliott%20Yamin%20-%20Wait%20for%20You.mp3" controls>
+    <p>Your browser doesn't support HTML5 audio. Here is a <a href="audio/Elliott%20Yamin%20-%20Wait%20for%20You.mp3">link
+        to the audio</a> instead.</p>
+</audio>
+<h2>8、嵌入字幕</h2>
+<video src="video/tears-of-steel-battle-clip-medium.mp4" controls width="50%" height="10%" preload="auto">
+    <!-- video内的段落，用于，当video播放失败时进行展示给用户的提示信息，并且将直到用户链接到视频地址等信息。。。 -->
+    <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p>
+    <!-- 此段代码用于关联字幕 -->
+    <track src="vtt/sintel-en.vtt">
+</video>
+
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
 </html>
